@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+          integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous" />
+    <script src="https://use.fontawesome.com/b57a16f16d.js"></script>
+</head>
+<style>
+    body{
+        background-color: #36454f;
+    }
+    form{
+        text-align: center;
+        align-content: center;
+        margin-top: 5px;
+    }
+    div.container{
+        background-color: #4e6472;
+        padding: 100px;
+    }
+    p{
+        text-align: center;
+        color: darkorange;
+    }
+    #nav-header{
+        color: white;
+        float: right;
+        margin-left: 15px;
+    }
+    nav{
+        margin-left: 55px;
+        background-color: #36454f;
+        padding: 5px;
+        width: inherit;
+    }
+</style>
+<body>
+<nav class="col-md-12"> <div class="navbar-brand">
+    <a href="/"> <i class="fa fa-home fa-lg"></i> <p id="nav-header">Post It!</p></a>
+</div>
+</nav>
+<div class="container">
+    <div class="col-md-4 offset-md-4 row card">
+        <div class="card-body">
+<form action="#" th:action="@{/process}"
+      th:object="${message}"
+      method="post" class="card-body">
+    <input type="hidden" th:field="*{id}" />
+    <div class="form-group" ><label> Content :<input type="text" th:field="*{content}" />
+    <span th:if="${#fields.hasErrors('content')}"
+          th:errors="*{content}"></span><br /></label></div>
+        <div class="form-group" ><label>Posted Date :<input type="text" th:field="*{posteddate}" />
+    <span th:if="${#fields.hasErrors('posteddate')}"
+          th:errors="*{posteddate}"></span><br /></label></div>
+            <div class="form-group" ><label>Sent By :<input type="text" th:field="*{sentby}" />
+    <span th:if="${#fields.hasErrors('sentby')}"
+          th:errors="*{sentby}"></span><br /></label></div>
+    <div><input type="submit" value="Post It!" class="btn btn-info"/> </div>
+
+</form>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

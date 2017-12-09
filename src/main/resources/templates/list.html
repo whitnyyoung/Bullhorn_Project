@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+          integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous" />
+    <script src="https://use.fontawesome.com/b57a16f16d.js"></script>
+</head>
+<style>
+    body{ background-color: #36454f;
+        font-color: white;
+    }
+    th{
+        text-align: center;
+    }
+    a{
+        text-align: center;
+    }
+    div.container{
+        background-color: #4e6472 ;
+        padding: 10px;
+        padding-bottom: 75px;
+    }
+    #nav-header{
+        color: white;
+        float: right;
+        margin-left: 15px;
+    }
+    div.navbar-brand{
+        margin-bottom: 10px;
+        background-color: #36454f;
+    }
+    #message{
+        text-align: right;
+        align-content: right;
+    }
+    th{
+        color: #36454f;
+    }
+    nav{
+        margin-left: 55px;
+        background-color: #36454f;
+        padding: 5px;
+        width: inherit;
+    }
+    table{
+        align-content: center;
+    }
+    td{
+        text-align: center;
+    }
+
+</style>
+<body>
+
+<nav class="col-md-12"> <div class="navbar-brand">
+    <a href="/"> <i class="fa fa-home fa-lg"></i> <p id="nav-header">Post It!</p></a>
+</div>
+</nav>
+
+<div class="container">
+    <div class="row col-md-10 offset-md-1 card">
+        <div class="card-body">
+        <i class="fa fa-envelope" aria-hidden="true" id="message"></i>
+        <a href="/add" style=" font-size: large" id="message" > Add a Message </a>
+        </div>
+<table class="table table-striped" >
+    <tr>
+        <th scope="col">Message</th>
+        <th scope="col">Posted Date</th>
+        <th scope="col">Sent By</th>
+    </tr>
+    <tr th:each="message : ${messages}">
+        <td th:text="${message.content}"></td>
+        <td th:text="${message.posteddate}"></td>
+        <td th:text="${message.sentby}"></td>
+    </tr>
+</table>
+</div>
+</div>
+</body>
+</html>
